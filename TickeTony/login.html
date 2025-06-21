@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>TickeTony - Login</title>
+    
+    <link rel="stylesheet" href="css/global.css" />
+    <link rel="stylesheet" href="css/login.css" />
+</head>
+<body>
+
+    <header>
+        <nav class="main-nav" aria-label="Navegação principal">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="Imagens/Logotipo.png" alt="Logotipo TickeTony" width="200" height="auto" />
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="login-main">
+        <section class="login-container content-section" aria-labelledby="login-title">
+            <h2 id="login-title" tabindex="0">Login</h2>
+            <form class="login-form" action="#" method="post" aria-describedby="login-desc" novalidate>
+
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input 
+                        type="email" 
+                        id="email" 
+                        name="email" 
+                        autocomplete="email" 
+                        required 
+                        placeholder="email@exemplo.com" 
+                        aria-required="true" 
+                    />
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password:</label>
+                    <input 
+                        type="password" 
+                        id="password" 
+                        name="password" 
+                        autocomplete="current-password" 
+                        required 
+                        placeholder="••••••••" 
+                        aria-required="true" 
+                    />
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-login">Entrar</button>
+
+                <p class="forgot-password">
+                    <a href="forgot-password.html">Esqueceu-se da password?</a>
+                </p>
+
+                <p class="signup-link">
+                    Não tem conta? <a href="register.html">Registe-se aqui</a>
+                </p>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <div class="info-contacto" role="contentinfo">
+            <div><span aria-label="Email de contacto">TickeTony@gmail.com</span></div>
+            <div><span aria-label="Número de telefone">+351 916 999 999</span></div>
+            <div><span aria-label="Rede social">@TickeTony</span></div>
+        </div>
+        <p>2025 TickeTony &copy; Todos os direitos reservados.</p>
+    </footer>
+
+</body>
+</html>

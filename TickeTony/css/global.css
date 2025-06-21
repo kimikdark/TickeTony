@@ -1,0 +1,203 @@
+:root {
+    /* Cores principais */
+    --color-primary: #fca311; /* Laranja vibrante para ações e destaques */
+    --color-primary-hover: #ffb347; /* Laranja mais claro para estados de hover */
+    --color-text-main: #f0f0f0;/* Texto principal claro */
+    --color-text-secondary: #ccc; /* Texto secundário/rodapé */
+    --color-text-label: #ddd; /* Rótulos de formulário */
+    --color-text-info: #aaa; /* Informaçôes de contacto no rodapé */
+    --color-background-dark: #121212; /* Fundo principal escuro */
+    --color-background-card: #1e1e1e; /* Fundo de cards/contêineres */
+    --color-background-input: #2a2a2a; /* Fundo de inputs */
+    --color-background-input-focus: #2e2e2e; /* Fundo de inputs em foco */
+    --color-border-input: #333; /* Borda de inputs */
+    --color-background-footer: #1a1a1a; /* Fundo do rodapé */
+    --color-text-button-dark: #000; /* Cor do texto em botões primários */
+    --color-white: #ffffff;  /* Branco puro */
+
+    /* Cores de Status (Adicionadas para o futuro) */
+    --color-status-success: #4CAF50; /* Verde suave */
+    --color-status-warning: #FFC107; /* Amarelo/Laranja */
+    --color-status-error: #F44336; /* Vermelho */
+
+    /* Sombras */
+    --shadow-button-primary: 0 4px 14px rgba(252, 163, 17, 0.2);
+    --shadow-button-primary-hover: 0 6px 20px rgba(252, 163, 17, 0.3);
+    --shadow-card: 0 0 20px rgba(0,0,0,0.5);
+    --shadow-input-focus: 0 0 5px rgba(252, 163, 17, 0.5);
+
+    /* Espaçamento */
+    --spacing-xs: 5px;
+    --spacing-s: 10px;
+    --spacing-m: 20px;
+    --spacing-l: 30px;
+    --spacing-xl: 40px;
+    --spacing-xxl: 70px;
+}
+
+/* IMPORTANTE: As fontes foram movidas para o HTML para garantir que carregam antes do seu CSS */
+/* @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;0,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap'); */
+
+html {
+    scroll-behavior: smooth;
+    box-sizing: border-box;
+    height: 100%;
+}
+
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+
+body {
+    /* Ajuste da fonte para Montserrat, conforme discutido */
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    margin: 0;
+    min-height: 100vh; /* Garante que o body ocupe toda a altura da viewport */
+    color: var(--color-text-main);
+    background-color: var(--color-background-dark);
+    
+    /* Configuração Flexbox para o layout principal da página */
+    display: flex;
+    flex-direction: column; 
+}
+
+h1, h2, h3, h4 {
+    font-family: 'Georgia', serif; /* Mantido conforme definido */
+    color: var(--color-white);
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    line-height: 1.2;
+}
+
+/* LINKS */
+a {
+    color: var(--color-primary);
+    text-decoration: none;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 0;
+    height: 2px;
+    background-color: var(--color-primary);
+    transition: width 0.3s ease;
+}
+
+a:hover::after {
+    width: 100%;
+}
+
+a:hover {
+    color: var(--color-primary-hover);
+}
+
+/* BOTÕES */
+.btn-primary { /* Adicionada a classe aqui para consistência */
+    cursor: pointer;
+    border: none;
+    background-color: var(--color-primary);
+    color: var(--color-text-button-dark);
+    font-family: inherit;
+    font-size: 1em;
+    padding: var(--spacing-s) var(--spacing-m);
+    border-radius: 8px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow-button-primary);
+    display: inline-flex; /* Para alinhar ícones com o texto */
+    align-items: center;
+    gap: var(--spacing-xs); /* Espaço entre texto e ícone */
+}
+
+.btn-primary:hover {
+    background-color: var(--color-primary-hover);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-button-primary-hover);
+}
+
+/* Estilos para ícones dentro de botões/links (Bootstrap Icons) */
+.btn-primary i.bi {
+    font-size: 1.1em; /* Ajusta o tamanho do ícone */
+}
+a i.bi { /* Para ícones em links da navbar */
+    font-size: 1em;
+    vertical-align: middle; /* Alinha o ícone verticalmente com o texto */
+    margin-right: 5px; /* Pequena margem para separar do texto */
+}
+
+
+/* INPUTS (estilos globais, se a maioria dos inputs for similar) */
+.form-group input {
+    padding: var(--spacing-s);
+    border-radius: 8px;
+    border: 1px solid var(--color-border-input);
+    background-color: var(--color-background-input);
+    color: var(--color-white);
+    transition: all 0.3s ease;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    background-color: var(--color-background-input-focus);
+    box-shadow: var(--shadow-input-focus);
+}
+
+/* FOOTER */
+footer {
+    background-color: var(--color-background-footer);
+    color: var(--color-text-secondary);
+    padding: var(--spacing-s) var(--spacing-m);
+    text-align: center;
+    font-size: 0.9em;
+    margin-top: auto; /* Empurra o footer para a parte inferior do contêiner flex (body) */
+}
+
+.info-contacto {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-m);
+    margin-bottom: var(--spacing-s);
+    flex-wrap: wrap;
+}
+
+.info-contacto div {
+    color: var(--color-text-info);
+    display: inline-flex; /* Para alinhar ícones de contacto */
+    align-items: center;
+    gap: var(--spacing-xs);
+}
+
+/* Media Queries Globais (se houver regras que afetam o site inteiro) */
+@media (max-width: 600px) {
+    .info-contacto {
+        flex-direction: column;
+        gap: var(--spacing-s);
+    }
+}
+
+/* Estilos para os ícones das funcionalidades */
+.feature-icon {
+    font-size: 3em; /* Ícones grandes para destaque */
+    color: var(--color-primary);
+    margin-bottom: var(--spacing-s);
+}
+
+/* Estilo para a ilustração hero */
+.hero-illustration {
+    max-width: 600px; /* Ajuste o tamanho máximo conforme necessário */
+    width: 100%; /* Garante responsividade */
+    height: auto;
+    margin-top: var(--spacing-l); /* Espaço acima da imagem */
+    margin-bottom: var(--spacing-l); /* Espaço abaixo da imagem */
+}

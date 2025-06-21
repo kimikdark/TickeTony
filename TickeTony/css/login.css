@@ -1,0 +1,67 @@
+/* Centralização para a página de login */
+body {
+    /* Estas regras devem estar no login.css para centralizar apenas o conteúdo da página de login */
+    justify-content: center; /* Centra o main verticalmente no body */
+    align-items: center;     /* Centra o main horizontalmente no body */
+}
+
+/* Ajustes para o main na página de login */
+main {
+    width: 90%;
+    max-width: 480px; /* Largura máxima para o card de login */
+    margin: auto; 
+    text-align: center;
+    /* Remover padding-top/bottom aqui, pois o login-container já tem padding interno */
+    padding: var(--spacing-m) 0; /* Pequeno padding vertical para o main */
+}
+
+/* LOGIN CARD */
+.login-container {
+    background-color: var(--color-background-card);
+    padding: var(--spacing-l); /* 30px */
+    border-radius: 16px;
+    box-shadow: var(--shadow-card);
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-m); /* 20px */
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.form-group label {
+    margin-bottom: var(--spacing-xs); /* 5px */
+    color: var(--color-text-label);
+}
+
+/* Estilos para os parágrafos de link de login */
+.forgot-password,
+.signup-link {
+    font-size: 0.9em;
+    margin-top: calc(-1 * var(--spacing-xs)); /* Ajuste de espaçamento */
+}
+
+/* Opcional: Para um layout de login puro, sem header/footer visíveis,
+   pode escondê-los ou removê-los do HTML no login.html.
+   Se eles devem existir mas não afetar a centralização do main: */
+header, footer {
+    position: absolute;
+    width: 100%;
+    z-index: 10;
+}
+header { top: 0; }
+footer { bottom: 0; }
+
+
+/* Media Queries Específicas para o Login (se houver) */
+@media (max-width: 600px) {
+    .login-container {
+        padding: var(--spacing-m); /* Reduzir padding do card em telas pequenas */
+    }
+}
