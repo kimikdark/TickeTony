@@ -1,0 +1,174 @@
+/* Cabeçalho */
+.main-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--spacing-m) var(--spacing-xl); /* Mais padding para o nav */
+    background-color: var(--color-background-dark); /* Fundo para o header */
+    position: relative; /* Ajusta-se ao fluxo normal, não absolute */
+    top: auto; /* Remove top:0 do global, se estiver a ser aplicado diretamente */
+    bottom: auto; /* Remove bottom:0 do global, se estiver a ser aplicado diretamente */
+}
+
+.main-nav .logo a {
+    font-size: 1.5em;
+    font-weight: 700;
+    color: var(--color-primary);
+    text-decoration: none;
+}
+
+.nav-links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: var(--spacing-m);
+    align-items: center;
+}
+
+.nav-links a {
+    color: var(--color-text-main);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.nav-links .btn-primary {
+    padding: var(--spacing-s) var(--spacing-m);
+    border-radius: 8px;
+    background-color: var(--color-primary);
+    color: var(--color-text-button-dark);
+    font-weight: 600;
+}
+
+
+
+/* Secção Hero */
+.index-main {     
+    flex: 1; /* Permite que o main se expanda para preencher o espaço restante */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centra o conteúdo dentro do main */
+    align-items: center;
+    text-align: center;
+    padding: var(--spacing-xl) var(--spacing-m); /* Padding geral para o main */
+}
+
+.hero-section {  
+    padding: var(--spacing-xxl) var(--spacing-m);
+    max-width: 800px;
+    margin-bottom: var(--spacing-xxl); /* Espaço antes das próximas secções */
+}
+
+.hero-section h1 {
+    font-size: 3em; /* Títulos maiores para destaque */
+    margin-bottom: var(--spacing-s);
+    line-height: 1.2;
+}
+
+.hero-section p {
+    font-size: 1.2em;
+    color: var(--color-text-secondary);
+    margin-bottom: var(--spacing-xl);
+}
+
+.btn-hero {
+    font-size: 1.2em;
+    padding: var(--spacing-s) var(--spacing-l);
+}
+
+/* Secções de Conteúdo Genéricas */
+.content-section {
+    padding: var(--spacing-xl) var(--spacing-m);
+    max-width: 960px;
+    margin: 0 auto var(--spacing-xxl) auto; /* Centraliza e adiciona margem inferior */
+    background-color: var(--color-background-card);
+    border-radius: 16px;
+    box-shadow: var(--shadow-card);
+}
+
+.content-section h2 {
+    font-size: 2.2em;
+    margin-bottom: var(--spacing-l);
+    color: var(--color-primary); /* Destaca o título da secção */
+}
+
+.content-section p {
+    font-size: 1.1em;
+    line-height: 1.6;
+    color: var(--color-text-label);
+}
+
+/* Grid de Funcionalidades */
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--spacing-m);
+    margin-top: var(--spacing-xl);
+}
+
+.feature-item {
+    background-color: var(--color-background-input); /* Cor de fundo ligeiramente diferente */
+    padding: var(--spacing-l);
+    border-radius: 12px;
+    text-align: left;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    transition: transform 0.3s ease;
+}
+
+.feature-item:hover {
+    transform: translateY(-5px);
+}
+
+.feature-item h3 {
+    color: var(--color-white);
+    margin-bottom: var(--spacing-s);
+}
+
+.feature-item p {
+    font-size: 0.95em;
+    color: var(--color-text-secondary);
+}
+
+
+/* Media Queries para Responsividade */
+@media (max-width: 768px) {
+    .main-nav {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: var(--spacing-m);
+    }
+    .nav-links {
+        flex-direction: column;
+        width: 100%;
+        margin-top: var(--spacing-m);
+        align-items: flex-start;
+        gap: var(--spacing-s);
+    }
+    .nav-links li {
+        width: 100%;
+    }
+    .nav-links a {
+        display: block;
+        padding: var(--spacing-s) 0;
+    }
+    .nav-links .btn-primary {
+        width: 100%;
+        text-align: center;
+        margin-top: var(--spacing-s);
+    }
+
+    .hero-section h1 {
+        font-size: 2.5em;
+    }
+    .hero-section p {
+        font-size: 1em;
+    }
+
+    .content-section h2 {
+        font-size: 1.8em;
+    }
+
+    .features-grid {
+        grid-template-columns: 1fr; /* Uma coluna em telas menores */
+    }
+}
