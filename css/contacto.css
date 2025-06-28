@@ -124,6 +124,7 @@
   padding: var(--spacing-xxl) var(--spacing-m);
   max-width: 1200px;
   margin: var(--spacing-xl) auto;
+  color: var(--color-text-main);
   text-align: center;
 }
 
@@ -135,7 +136,7 @@
 
 .faq-section .lead {
   font-size: 1.1em;
-  color: var(--color-text-secondary);
+  color: var(--color-text-main);
   margin-bottom: var(--spacing-xl);
 }
 
@@ -213,7 +214,7 @@
 }
 
 .faq-answer-content {
-  color: var(--color-text-primary);
+  color: var(--color-text-main);
   line-height: 1.6;
   max-height: 0;
   overflow: hidden;
@@ -234,7 +235,7 @@
   text-align: center;
   margin-top: var(--spacing-xxl);
   font-size: 1.1em;
-  color: var(--color-text-primary);
+  color: var(--color-text-main);
 }
 
 .cta-faq-end a {
