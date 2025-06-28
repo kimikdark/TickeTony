@@ -1,10 +1,3 @@
-/*
- * global.css - Ficheiro CSS Global
- * Contém variáveis de cor, estilos base, e estilos para componentes comuns (botões, inputs, footer)
- */
-
-/* REMOVIDO: @import url(...) aqui. Move para o topo se necessário, mas já está no HTML. */
-
 :root {
     /* Cores do Modo DARK (Padrão) */
     --color-primary: #fca311;           /* Laranja vibrante para ações e destaques */
@@ -61,6 +54,93 @@ body.light-mode {
     --shadow-input-focus: 0 0 4px rgba(0, 168, 150, 0.4); /* Sombra ajustada à nova cor primária */
 }
 
+/* Cabeçalho */
+.main-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--spacing-m) var(--spacing-xl);
+    background-color: var(--color-background-dark);
+    position: relative;
+    top: auto;
+    bottom: auto;
+}
+
+.main-nav .logo a {
+    font-size: 1.5em;
+    font-weight: 700;
+    color: var(--color-primary);
+    text-decoration: none; /* Garante que o logo não tem sublinhado */
+}
+
+.nav-links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: var(--spacing-m);
+    align-items: center;
+}
+
+.nav-links a {
+    color: var(--color-text-main);
+    text-decoration: none; /* Garante que os links de navegação não têm sublinhado */
+    transition: color 0.3s ease;
+}
+
+.nav-links .btn-primary {
+    padding: var(--spacing-s) var(--spacing-m);
+    border-radius: 8px;
+    background-color: var(--color-primary);
+    /* Adicione outras propriedades de botão aqui se necessário, como cor do texto */
+}
+
+/* Regra geral para remover sublinhados de todos os links, a menos que especificado de outra forma */
+a {
+    text-decoration: none;
+}
+
+/* BOTÕES */
+.btn-primary {
+    cursor: pointer;
+    border: none !important; /* Garante que a borda é removida ou definida conforme o seu CSS */
+    background-color: var(--color-primary) !important; /* Define a cor de fundo primária */
+    color: var(--color-text-button-dark) !important; /* Define a cor do texto do botão */
+    font-family: inherit;
+    font-size: 1em;
+    padding: var(--spacing-s) var(--spacing-m);
+    border-radius: 8px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow-button-primary) !important; /* Garante que a sombra é aplicada */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-xs);
+    text-decoration: none !important; /* Remove o sublinhado, importante para <a> tags */
+}
+
+.btn-primary:hover {
+    background-color: var(--color-primary-hover) !important; /* Mantém a cor de hover desejada */
+    transform: translateY(-2px) !important; /* Assegura o efeito de elevação */
+    box-shadow: var(--shadow-button-primary-hover) !important; /* Mantém a sombra no hover */
+}
+
+/* Estilos para o ícone dentro de um btn-primary */
+.btn-primary i.bi {
+    font-size: 1.1em !important; /* Garante o tamanho do ícone */
+    line-height: 1 !important; /* Garante o alinhamento do ícone */
+}
+
+/* Estilos para o modo claro */
+body.light-mode .btn-primary {
+    background-color: var(--color-primary) !important; /* Já é o valor de light mode dentro deste contexto */
+    color: var(--color-text-button-dark) !important; /* A cor do texto do botão para light mode */
+    box-shadow: var(--shadow-button-primary) !important; /* Já é o valor de light mode dentro deste contexto */
+}
+
+
 /* Adicionar uma transição suave para as propriedades CSS que mudam de cor */
 body,
 body * {
@@ -89,9 +169,8 @@ body {
     flex-direction: column;
 }
 
-/* Navbar e Footer com a mesma cor */
-.main-nav, footer {
-    background-color: var(--color-background-header-footer); /* Usa a nova variável */
+footer {
+    background-color: var(--color-background-header-footer);
 }
 
 
@@ -140,40 +219,6 @@ a:hover {
 .nav-links a.active::after {
     width: 100%;
     background-color: var(--color-primary);
-}
-
-/* BOTÕES */
-.btn-primary {
-    cursor: pointer;
-    border: none;
-    background-color: var(--color-primary);
-    color: var(--color-text-button-dark);
-    font-family: inherit;
-    font-size: 1em;
-    padding: var(--spacing-s) var(--spacing-m);
-    border-radius: 8px;
-    font-weight: 600;
-    letter-spacing: 0.5px;
-    transition: all 0.3s ease;
-    box-shadow: var(--shadow-button-primary);
-    display: inline-flex;
-    align-items: center;
-    gap: var(--spacing-xs);
-}
-
-.btn-primary:hover {
-    background-color: var(--color-primary-hover);
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-button-primary-hover);
-}
-
-.btn-primary i.bi {
-    font-size: 1.1em;
-}
-a i.bi {
-    font-size: 1em;
-    vertical-align: middle;
-    margin-right: 5px;
 }
 
 /* INPUTS */

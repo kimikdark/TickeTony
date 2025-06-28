@@ -29,67 +29,51 @@ document.addEventListener('DOMContentLoaded', function() {
 
                 // Lógica do logotipo para Dark Mode
                 if (logoImg) {
-                    logoImg.src = 'assets/logos/Logotipo_dark.png'; // Volta para a imagem dark
-                    logoImg.alt = 'Logotipo TickeTony';
+                    logoImg.src = 'assets/logos/Logotipo_dark.png'; // Substitua pelo caminho da sua imagem dark
+                    logoImg.alt = 'Logotipo TickeTony - Modo Escuro';
                 }
             }
         }
+        // Guarda a preferência no localStorage
+        localStorage.setItem('theme', theme);
     }
 
-    // Carregar a preferência do utilizador ou usar a do sistema
-    const savedTheme = localStorage.getItem('theme'); // 'dark' ou 'light'
-
-    if (savedTheme) {
-        applyTheme(savedTheme);
-    } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
-        applyTheme('light');
-    } else {
-        applyTheme('dark');
+    // Função para carregar o tema guardado ou definir o padrão
+    function loadTheme() {
+        const savedTheme = localStorage.getItem('theme');
+        // Se houver um tema guardado, usa-o. Caso contrário, verifica a preferência do sistema ou usa 'dark' como padrão
+        if (savedTheme) {
+            applyTheme(savedTheme);
+        } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
+            // Se o sistema preferir o modo claro
+            applyTheme('light');
+        } else {
+            // Padrão para modo escuro
+            applyTheme('dark');
+        }
     }
 
-    // Adicionar event listener ao botão de toggle
+    // Carrega o tema quando a página é carregada
+    loadTheme();
+
+    // Adiciona o event listener para o botão de alternar tema
     if (themeToggleBtn) {
-        themeToggleBtn.addEventListener('click', () => {
-            if (body.classList.contains('light-mode')) {
-                applyTheme('dark');
-                localStorage.setItem('theme', 'dark');
-            } else {
-                applyTheme('light');
-                localStorage.setItem('theme', 'light');
-            }
+        themeToggleBtn.addEventListener('click', function() {
+            const currentTheme = body.classList.contains('light-mode') ? 'light' : 'dark';
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            applyTheme(newTheme);
         });
     }
-    // --- Fim da Lógica de Dark/Light Mode ---
 
-
-    // --- Inicialização do AOS - Animate On Scroll (APENAS AQUI) ---
-    AOS.init({
-        once: true,
-        duration: 800,
-        easing: 'ease-out-quad'
-    });
-
-    // --- Script para o estado ativo da navbar ---
-    const navLinks = document.querySelectorAll('.nav-link-item');
+    // --- Script para o estado ativo da navbar (AQUI) ---
+    const navLinks = document.querySelectorAll('.main-nav .nav-link-item');
     const sections = document.querySelectorAll('main section[id]');
-    const isContactPage = body.classList.contains('contacto-page');
-
 
     function highlightNavLink() {
-        if (isContactPage) {
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.href.includes('contacto.html')) {
-                    link.classList.add('active');
-                }
-            });
-            return; // Sai da função, pois não há scroll para secções na página de contacto
-        }
-
         let current = '';
         sections.forEach(section => {
             const sectionTop = section.offsetTop;
-            const scrollOffset = window.innerHeight * 0.3;
+            const scrollOffset = window.innerHeight * 0.3; 
             if (window.scrollY >= sectionTop - scrollOffset) {
                 current = section.getAttribute('id');
             }

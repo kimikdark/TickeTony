@@ -6,31 +6,37 @@
     <title>Contacto - TickeTony</title>
     <meta name="description" content="Entre em contacto com a equipa TickeTony para dúvidas, suporte ou propostas personalizadas." />
 
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/contacto.css">
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Georgia&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="css/global.css">
-    <link rel="stylesheet" href="css/contacto.css"> </head>
-<body>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+<body style="background-color: var(--color-background-dark);">
     <header>
         <nav class="main-nav" aria-label="Navegação principal">
             <div class="logo">
                 <a href="index.html">
-                    <img src="assets/imagens/Logo.png" alt="Logotipo TickeTony" width="200" />
+                    <img src="assets/logos/Logotipo_dark.png" alt="Logotipo TickeTony" width="200" />
                 </a>
             </div>
             <ul class="nav-links" role="menubar">
-                <li role="none"><a role="menuitem" href="#sobre" class="nav-link-item" data-target="sobre"><i class="bi bi-info-circle-fill" aria-hidden="true"></i> Sobre</a></li>
-                <li role="none"><a role="menuitem" href="#funcionalidades" class="nav-link-item" data-target="funcionalidades"><i class="bi bi-tools" aria-hidden="true"></i> Funcionalidades</a></li>
-                <li role="none"><a role="menuitem" href="#comunidade" class="nav-link-item" data-target="comunidade"><i class="bi bi-people-fill" aria-hidden="true"></i> Comunidade</a></li>
-                <li role="none"><a role="menuitem" href="contacto.html" class="nav-link-item" data-target="contacto-page"><i class="bi bi-envelope-fill" aria-hidden="true"></i> Contacto</a></li> <li role="none">
-                    <a role="button" href="demo.html" class="btn-primary" aria-label="Experimentar demo do TickeTony">Experimenta a demo <i class="bi bi-box-arrow-right" aria-hidden="true"></i></a>
+                <li role="none"><a role="menuitem" href="#faq-title" class="nav-link-item" data-target="pertuntas frequentes"><i class="bi bi-info-circle-fill" aria-hidden="true"></i> Perguntas Frequentes</a></li>
+                <li role="none"><a role="menuitem" href="contacto.html" class="nav-link-item" data-target="contacto"><i class="bi bi-envelope-fill" aria-hidden="true"></i> Contacto</a></li>
+                <li role="none">
+                    <a role="button" href="demo.html" class="btn-primary" aria-label="Experimentar demo do TickeTony">Em Breve  <i class="bi bi-box-arrow-right" aria-hidden="true"></i></a>
                 </li>
             </ul>
+            <button id="theme-toggle" class="btn btn-outline-light" aria-label="Alternar tema escuro/claro">
+                <i class="bi bi-moon-fill theme-icon"></i>
+            </button>
         </nav>
     </header>
 
@@ -39,7 +45,7 @@
             <h1 id="contact-title">Fale Connosco</h1>
             <p class="lead">Preencha o formulário abaixo para entrar em contacto com a nossa equipa. Estamos aqui para ajudar!</p>
 
-            <form action="#" method="POST" class="contact-form">
+            <form action="#" method="POST" class="contact-form" id="contactForm">
                 <div class="form-group">
                     <label for="nome">Nome Completo:</label>
                     <input type="text" id="nome" name="nome" required aria-required="true" placeholder="O seu nome completo">
@@ -62,20 +68,82 @@
 
                 <div class="form-group">
                     <label for="assunto">Assunto:</label>
-                    <input type="text" id="assunto" name="assunto" required aria-required="true" placeholder="Ex: Dúvida sobre funcionalidades">
+                    <input type="text" id="assunto" name="assunto" required aria-required="true" placeholder="Assunto da sua mensagem">
                 </div>
 
                 <div class="form-group">
-                    <label for="mensagem">Mensagem:</label>
-                    <textarea id="mensagem" name="mensagem" rows="6" required aria-required="true" placeholder="Descreva a sua questão ou pedido..."></textarea>
+                    <label for="mensagem">A sua Mensagem:</label>
+                    <textarea id="mensagem" name="mensagem" rows="5" required aria-required="true" placeholder="Escreva a sua mensagem aqui..."></textarea>
                 </div>
 
                 <div class="form-actions">
                     <button type="submit" class="btn-primary">Enviar Mensagem <i class="bi bi-send-fill" aria-hidden="true"></i></button>
                 </div>
+
+                <div id="form-message" class="form-message hidden" role="alert" aria-live="assertive"></div>
             </form>
         </section>
-    </main>
+
+        <section class="faq-section content-section" aria-labelledby="faq-title" tabindex="0">
+            <h2 id="faq-title" data-aos="fade-right">Perguntas Frequentes</h2>
+            <p class="lead" data-aos="fade-left">Encontre respostas para as perguntas mais comuns sobre o TickeTony.</p>
+
+            <div class="faq-grid">
+                <article class="faq-item" data-aos="fade-up" data-aos-delay="100">
+                    <header class="faq-header" aria-expanded="false" aria-controls="faq-answer-1" role="button" tabindex="0">
+                        <h3 class="faq-question-title">O que é o TickeTony?</h3>
+                        <span class="faq-toggle" aria-hidden="true"><i class="bi bi-plus-lg"></i></span>
+                    </header>
+                    <div id="faq-answer-1" class="faq-answer-content">
+                        <p>O TickeTony é uma plataforma open source de gestão de tickets e tarefas, desenhada para equipas ágeis. Ajuda a centralizar a comunicação, organizar o trabalho e otimizar processos.</p>
+                    </div>
+                </article>
+
+                <article class="faq-item" data-aos="fade-up" data-aos-delay="200">
+                    <header class="faq-header" aria-expanded="false" aria-controls="faq-answer-2" role="button" tabindex="0">
+                        <h3 class="faq-question-title">Como posso começar a usar?</h3>
+                        <span class="faq-toggle" aria-hidden="true"><i class="bi bi-plus-lg"></i></span>
+                    </header>
+                    <div id="faq-answer-2" class="faq-answer-content">
+                        <p>Atualmente, o TickeTony está em fase de desenvolvimento. Em breve, disponibilizaremos um link para demonstração e instruções detalhadas para começar a utilizar a plataforma.</p>
+                    </div>
+                </article>
+
+                <article class="faq-item" data-aos="fade-up" data-aos-delay="300">
+                    <header class="faq-header" aria-expanded="false" aria-controls="faq-answer-3" role="button" tabindex="0">
+                        <h3 class="faq-question-title">O TickeTony é gratuito?</h3>
+                        <span class="faq-toggle" aria-hidden="true"><i class="bi bi-plus-lg"></i></span>
+                    </header>
+                    <div id="faq-answer-3" class="faq-answer-content">
+                        <p>Sim, o TickeTony é uma plataforma open source e será totalmente gratuita para utilizar. O nosso objetivo é fornecer uma ferramenta acessível e eficiente para todas as equipas.</p>
+                    </div>
+                </article>
+
+                <article class="faq-item" data-aos="fade-up" data-aos-delay="400">
+                    <header class="faq-header" aria-expanded="false" aria-controls="faq-answer-4" role="button" tabindex="0">
+                        <h3 class="faq-question-title">Posso contribuir para o projeto?</h3>
+                        <span class="faq-toggle" aria-hidden="true"><i class="bi bi-plus-lg"></i></span>
+                    </header>
+                    <div id="faq-answer-4" class="faq-answer-content">
+                        <p>Absolutamente! Acreditamos no poder da comunidade. Em breve, disponibilizaremos o repositório no GitHub e guias para que programadores, designers e outros contribuam para o TickeTony.</p>
+                    </div>
+                </article>
+
+                <article class="faq-item" data-aos="fade-up" data-aos-delay="500">
+                    <header class="faq-header" aria-expanded="false" aria-controls="faq-answer-5" role="button" tabindex="0">
+                        <h3 class="faq-question-title">Qual o prazo de resposta?</h3>
+                        <span class="faq-toggle" aria-hidden="true"><i class="bi bi-plus-lg"></i></span>
+                    </header>
+                    <div id="faq-answer-5" class="faq-answer-content">
+                        <p>A nossa equipa esforça-se para responder a todas as mensagens submetidas via formulário num prazo máximo de 48 horas úteis. Em casos de grande volume, pode demorar um pouco mais, mas garantimos que todas as questões serão atendidas.</p>
+                    </div>
+                </article>
+
+            </div>
+
+            <p class="cta-faq-end">Não encontrou o que procurava? <a href="#contact-title">Preencha o nosso formulário de contacto acima</a> e teremos todo o gosto em ajudar!</p>
+        </section>
+        </main>
 
     <footer>
         <div class="info-contacto">
@@ -86,6 +154,9 @@
         <p>2025 TickeTony &copy; Todos os direitos reservados.</p>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eCEbngM3Y2B52+M" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVzpcR9OFE+IKYl7+D784+a6+JMYK5x58R9+49J9" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="js/contacto.js"></script>
+    <script src="js/dark_light_mode.js"></script>
 </body>
 </html>
